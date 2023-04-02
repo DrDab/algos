@@ -89,11 +89,10 @@ map<int, int> match_couples(int n, const int* company_prefs,
 
 int main(int argc, char** argv) {
   const int n = 3;
-  // These arrays are 2D-1D translations
-  const int companies[] = {1, 0, 2, 2, 1, 0, 0, 2, 1};
-  const int applicants[] = {1, 0, 2, 2, 1, 0, 0, 2, 1};
+  const int companies[n][n] = {{1, 0, 2}, {2, 1, 0}, {0, 2, 1}};
+  const int applicants[n][n] = {{1, 0, 2}, {2, 1, 0}, {0, 2, 1}};
 
-  map<int, int> couples = match_couples(n, companies, applicants);
+  map<int, int> couples = match_couples(n, (int*)companies, (int*)applicants);
 
   for (const auto& pair : couples) {
     cout << pair.first << "-" << pair.second << endl;
