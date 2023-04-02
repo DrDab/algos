@@ -77,7 +77,6 @@ map<int, int> match_couples(int n, const int* company_prefs,
 
   for (int i = 0; i < n; i++) {
     sol[i] = company_prefs[get_res_index(n, i, companies_assn[i])];
-    // company_prefs[i][companies_assn[i]];
   }
 
   free(companies_assn);
