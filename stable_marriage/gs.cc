@@ -4,9 +4,9 @@
 #include <queue>
 #include <vector>
 
-#define DEBUG false
-
 using namespace std;
+
+const bool DEBUG = false;
 
 int get_res_index(int n, int i, int j) { return (n * i) + j; }
 
