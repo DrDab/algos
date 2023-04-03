@@ -87,12 +87,44 @@ map<int, int> match_couples(int n, const int* company_prefs,
 }
 
 int main(int argc, char** argv) {
-  const int n = 3;
-  const int companies[n][n] = {{1, 0, 2}, {2, 1, 0}, {0, 2, 1}};
-  const int applicants[n][n] = {{1, 0, 2}, {2, 1, 0}, {0, 2, 1}};
+  int n;
 
-  map<int, int> couples = match_couples(n, (int*)companies, (int*)applicants);
+  cout << "How many company-applicant pairs?" << endl;
+  cin >> n;
 
+  int* company_prefs = static_cast<int*>(malloc(n * n * sizeof(int)));
+  int* applicant_prefs = static_cast<int*>(malloc(n * n * sizeof(int)));
+
+  int input;
+
+  for (int i = 0; i < n; i++) {
+    cout << "Company " << i
+         << ", enter preferred applicants, separated by spaces, in descending "
+            "order:"
+         << endl;
+    for (int j = 0; j < n; j++) {
+      cin >> input;
+      company_prefs[get_res_index(n, i, j)] = input;
+    }
+  }
+
+  for (int i = 0; i < n; i++) {
+    cout << "Applicant " << i
+         << ", enter preferred companies, separated by spaces, in descending "
+            "order:"
+         << endl;
+    for (int j = 0; j < n; j++) {
+      cin >> input;
+      applicant_prefs[get_res_index(n, i, j)] = input;
+    }
+  }
+
+  map<int, int> couples = match_couples(n, company_prefs, applicant_prefs);
+
+  free(company_prefs);
+  free(applicant_prefs);
+
+  cout << "Best company-applicant matchings are: " << endl;
   for (const auto& pair : couples) {
     cout << pair.first << "-" << pair.second << endl;
   }
