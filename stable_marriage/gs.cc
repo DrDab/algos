@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
   free(company_prefs);
   free(applicant_prefs);
 
-  cout << "Best company-applicant matchings are: " << endl;
+  cout << endl << "Best company-applicant matchings are: " << endl;
   for (const auto& pair : couples) {
     cout << pair.first << "-" << pair.second << endl;
   }

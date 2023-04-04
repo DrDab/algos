@@ -3,10 +3,10 @@ CXXFLAGS = -Wall -g -std=c++17
 
 all: gs
 
-ex7: ex7.o
+gs: gs.o
 	$(CXX) $(CXXFLAGS) gs.o -o gs
 
-ex7.o: ex7.cc Vector.h
+gs.o: gs.cc
 	$(CXX) $(CXXFLAGS) -c gs.cc
 
 clean:
